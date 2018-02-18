@@ -13,7 +13,7 @@
 import { Component, Vue } from 'vue-property-decorator';
 
 @Component
-export default class ToBar extends Vue {
+export default class TopBar extends Vue {
 }
 </script>
 
