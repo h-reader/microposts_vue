@@ -1,32 +1,62 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div class="header">
+      <TopBar />
     </div>
-    <router-view/>
+    <div class="main">
+      <div class="contents">
+        <router-view/>
+      </div>
+    </div>
   </div>
+
 </template>
 
-<style>
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+import TopBar from '@/components/TopBar.vue';
+
+@Component({
+  components: {
+    TopBar,
+  },
+})
+export default class App extends Vue {}
+</script>
+
+<style lang="scss">
+html, body {
+  margin: 0px;
+}
+
 #app {
+  display: grid;
+  grid-template-rows: 50px 1fr;
+  grid-template-columns: 1fr;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
 }
 
-#nav {
-  padding: 30px;
+div.header {
+  grid-row: 1;
+  grid-column: 1;
+  width: 100%;
+  max-width: 850px;
+  margin: auto;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+div.main {
+  grid-row: 2;
+  grid-column: 1;
+  background-color: powderblue;
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+  .contents {
+    margin: 1px auto auto auto;
+    background-color: white;
+    width: 100%;
+    max-width: 850px;
+  }
 }
 </style>
