@@ -28,7 +28,8 @@
     "chai": "^4.1.2",
     "node-sass": "^4.7.2",
     "sass-loader": "^6.0.6",
-    "vue-template-compiler": "^2.5.13"
+    "vue-template-compiler": "^2.0.0",
+    "webpack": "~3.0.0"
   },
   "browserslist": [
     "> 1%",
