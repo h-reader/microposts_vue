@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="header">
-      <TopBar />
+      <top-bar />
     </div>
     <div class="main">
       <div class="contents">
@@ -14,7 +14,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import TopBar from '@/components/TopBar.vue';
+import TopBar from '@/components/top-bar.vue';
 
 @Component({
   components: {
