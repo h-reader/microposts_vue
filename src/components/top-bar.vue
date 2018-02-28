@@ -4,16 +4,25 @@
       <router-link to="/">Microposts</router-link>
     </div>
     <div class="settings">
-      <button>sign up</button>
+      <normal-button text="sign up" @click="clickFunc('12')" />
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import NormalButton from '@/parts/normal-button.vue';
 
-@Component
+@Component({
+  components: {
+    NormalButton,
+  },
+})
 export default class TopBar extends Vue {
+
+  private clickFunc(str: string) {
+    alert(str);
+  }
 }
 </script>
 
