@@ -9,7 +9,7 @@ import { Prop, Vue, Emit } from 'vue-property-decorator';
 @Component
 export default class NormalButton extends Vue {
   @Prop()
-  public text: string = '';
+  public text!: string;
 
   private data() {
     return {
@@ -18,7 +18,9 @@ export default class NormalButton extends Vue {
   }
 
   @Emit(`click`)
-  private onClick() {}
+  private onClick() {
+    // emit method
+  }
 
 }
 </script>
