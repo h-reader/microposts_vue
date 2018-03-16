@@ -11,7 +11,12 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import { State, Action, Getter } from 'vuex-class';
 import NormalButton from '@/parts/normal-button.vue';
+
+import { ProfileState, User, ActionType } from '@/store/profile/types';
+
+const namespace: string = 'profile';
 
 @Component({
   components: {
@@ -20,8 +25,11 @@ import NormalButton from '@/parts/normal-button.vue';
 })
 export default class TopBar extends Vue {
 
-  private clickFunc(str: string) {
-    alert(str);
+  @Action(ActionType.login, { namespace }) private login: any;
+
+  private async clickFunc(str: string) {
+    this.$router.push({ path: 'login' });
+
   }
 }
 </script>
