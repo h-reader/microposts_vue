@@ -9,6 +9,9 @@ import { RootState } from '../types';
 export const state: ProfileState = {
     user: undefined,
     error: false,
+    accessToken: undefined,
+    client: undefined,
+    uid: undefined,
 };
 
 /** Profile Store */

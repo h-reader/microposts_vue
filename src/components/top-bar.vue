@@ -11,12 +11,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { State, Action, Getter } from 'vuex-class';
 import NormalButton from '@/parts/normal-button.vue';
-
-import { ProfileState, User, ActionType } from '@/store/profile/types';
-
-const namespace: string = 'profile';
 
 @Component({
   components: {
@@ -24,8 +19,6 @@ const namespace: string = 'profile';
   },
 })
 export default class TopBar extends Vue {
-
-  @Action(ActionType.login, { namespace }) private login: any;
 
   private async clickFunc(str: string) {
     this.$router.push({ path: 'login' });
@@ -36,11 +29,10 @@ export default class TopBar extends Vue {
 
 <style lang="scss" scoped>
   .topbar {
-    width: 100%;
     max-width: 865px;
     display: grid;
     grid-template-columns: 1fr, 1fr;
-    flex-flow: row;
+    margin: auto;
 
     .title {
       grid-column: 1;

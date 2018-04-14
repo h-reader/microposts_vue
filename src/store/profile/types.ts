@@ -8,6 +8,9 @@ export interface User {
 export interface ProfileState {
     user?: User;
     error: boolean;
+    accessToken?: string;
+    client?: string;
+    uid?: string;
 }
 
 export enum ActionType {
@@ -20,5 +23,5 @@ export enum MutationType {
 }
 
 export enum GetterType {
-    test = 'test',
+    isLogin = 'isLogin',
 }

@@ -1,5 +1,6 @@
 import { MutationTree } from 'vuex';
 import { ProfileState, User } from './types';
+import axios from 'axios';
 
 /** Profile Mutation */
 export const mutations: MutationTree<ProfileState> = {
@@ -7,11 +8,15 @@ export const mutations: MutationTree<ProfileState> = {
     /**
      * 認証情報取得成功後の処理
      * @param state State
-     * @param payload ユーザ情報
+     * @param payload レスポンス
      */
-    profileLoaded(state, payload: User) {
+    profileLoaded(state, payload) {
         state.error = false;
-        state.user = payload;
+        state.user = payload.data as User;
+        const headerInfo = payload.headers;
+        state.accessToken = headerInfo['access-token'];
+        state.client = headerInfo.client;
+        state.uid = headerInfo.uid;
     },
 
     /**

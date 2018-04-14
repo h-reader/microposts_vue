@@ -26,6 +26,7 @@ export default class App extends Vue {}
 
 <style lang="scss">
 html, body {
+  height: 100%;
   margin: 0px;
 }
 
@@ -33,6 +34,8 @@ html, body {
   display: grid;
   grid-template-rows: 50px 1fr;
   grid-template-columns: 1fr;
+  height: 100%;
+  background-color: powderblue;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -42,8 +45,9 @@ html, body {
 div.header {
   grid-row: 1;
   grid-column: 1;
+  background-color: white;
   width: 100%;
-  max-width: 850px;
+  height: 100%;
   margin: auto;
 }
 
@@ -53,10 +57,39 @@ div.main {
   background-color: powderblue;
 
   .contents {
-    margin: 1px auto auto auto;
-    background-color: white;
+    margin: 5px auto;
     width: 100%;
-    max-width: 850px;
   }
 }
+
+.button {
+  height: 30px;
+  width: 100px;
+  border: 1px solid #15aeec;
+  background-color: #49c0f0;
+  background-image: -webkit-linear-gradient(top, #49c0f0, #2cafe3);
+  background-image: linear-gradient(to bottom, #49c0f0, #2cafe3);
+  border-radius: 4px;
+  color: #fff;
+  line-height: 30px;
+  -webkit-transition: none;
+  transition: none;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+
+  &:hover {
+    border:1px solid #1090c3;
+    background-color: #1ab0ec;
+    background-image: -webkit-linear-gradient(top, #1ab0ec, #1a92c2);
+    background-image: linear-gradient(to bottom, #1ab0ec, #1a92c2);
+  }
+
+  &:active {
+    background: #1a92c2;
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, .2);
+    color: #1679a1;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, .5);
+  }
+
+}
+
 </style>

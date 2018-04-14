@@ -15,7 +15,7 @@ export const actions: ActionTree<ProfileState, RootState> = {
 
         try {
             const response = await axios.post('https://shrouded-dusk-75907.herokuapp.com/api/auth/sign_in', payload);
-            commit(MutationType.profileLoaded, response.data as User);
+            commit(MutationType.profileLoaded, response);
             return true;
         } catch (error) {
             commit(MutationType.profileError);
