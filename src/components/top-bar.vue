@@ -4,23 +4,18 @@
       <router-link to="/">Microposts</router-link>
     </div>
     <div class="settings">
-      <normal-button text="sign up" @click="clickFunc('12')" />
+      <button class="button" @click="clickFunc">sign up</button>
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import NormalButton from '@/parts/normal-button.vue';
 
-@Component({
-  components: {
-    NormalButton,
-  },
-})
+@Component({})
 export default class TopBar extends Vue {
 
-  private async clickFunc(str: string) {
+  private async clickFunc() {
     this.$router.push({ path: 'login' });
 
   }
@@ -33,6 +28,7 @@ export default class TopBar extends Vue {
     display: grid;
     grid-template-columns: 1fr, 1fr;
     margin: auto;
+    padding-top: 5px;
 
     .title {
       grid-column: 1;
