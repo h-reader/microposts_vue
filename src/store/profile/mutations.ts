@@ -7,9 +7,9 @@ export const mutations: MutationTree<ProfileState> = {
     /**
      * 認証情報取得成功後の処理
      * @param state State
-     * @param payload [1]user: User
+     * @param payload user: ログインしたユーザ情報
      */
-    profileLoaded(state, payload) {
+    profileLoaded(state, payload: {user: User}) {
         state.error = false;
         state.user = payload.user;
     },

@@ -9,9 +9,9 @@ export const actions: ActionTree<ProfileState, RootState> = {
     /**
      * ログイン
      * @param param0 commit
-     * @param payload [1]email: string, [2]password: string
+     * @param payload email: メールアドレス, password: パスワード
      */
-    async login({ commit }, payload): Promise<boolean> {
+    async login({ commit }, payload: {email: string, password: string}): Promise<boolean> {
 
         try {
             const api = AxiosApiUtil.getAxios();

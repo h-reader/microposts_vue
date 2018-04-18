@@ -9,13 +9,13 @@ export const actions: ActionTree<MicropostsState, RootState> = {
     /**
      * Micropostを投稿する
      * @param param0 commit
-     * @param payload [1]userId: string, [2]content: string
+     * @param payload userId: ユーザID, content: 投稿内容
      */
-    async tweet({ commit }, payload): Promise<boolean> {
+    async tweet({ commit }, payload: {userId: string, content: string}): Promise<boolean> {
         try {
             const api = AxiosApiUtil.getAxiosWithAuth();
             await api.post('/microposts', payload);
-            const response = await api.get('/user/' + payload.userId + '/microposts', payload);
+            const response = await api.get('/user/' + payload.userId + '/microposts');
             commit(MicropostsMutationType.tweetsucceed, response.data as Micropost[]);
             return true;
         } catch (error) {
@@ -27,9 +27,9 @@ export const actions: ActionTree<MicropostsState, RootState> = {
     /**
      * ユーザに紐づくMicropostを取得する
      * @param param0 commit
-     * @param payload [1]userId: string
+     * @param payload userId: ユーザID
      */
-    async getTweetList({ commit }, payload): Promise<boolean> {
+    async getTweetList({ commit }, payload: {userId: string}): Promise<boolean> {
         try {
             const api = AxiosApiUtil.getAxiosWithAuth();
             const response = await api.get('/user/' + payload.userId + '/microposts');
