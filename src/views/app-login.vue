@@ -16,15 +16,17 @@
 import Component from 'vue-class-component';
 import { Vue, Prop } from 'vue-property-decorator';
 import { profile } from '../store/profile';
-import { ActionType, GetterType, ProfileState } from '../store/profile/types';
-import { Action, Getter } from 'vuex-class';
+import { ProfileActionType, ProfileGetterType } from '../store/profile/types';
+import { Action, Getter, State } from 'vuex-class';
 const namespace: string = 'profile';
+const namespaceMicroposts: string = 'microposts';
 
-@Component({})
+@Component({
+})
 export default class AppLogin extends Vue {
 
-  @Action(ActionType.login, {namespace}) private login: any;
-  @Getter(GetterType.isLogin) private isLogin!: boolean;
+  @Action(ProfileActionType.login, {namespace}) private login: any;
+  @Getter(ProfileGetterType.isLogin) private isLogin!: boolean;
 
   private email: string = '';
   private password: string = '';
