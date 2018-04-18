@@ -2,18 +2,18 @@ import { Module } from 'vuex';
 import { getters } from './getters';
 import { actions } from './actions';
 import { mutations } from './mutations';
-import { ProfileState } from './types';
+import { MicropostsState } from './types';
 import { RootState } from '../types';
 
-/** Profile State */
-export const state: ProfileState = {
-    user: undefined,
+/** Microposts State */
+export const state: MicropostsState = {
+    microposts: undefined,
     error: false,
 };
 
-/** Profile Store */
+/** Microposts Store */
 const namespaced: boolean = true;
-export const profile: Module<ProfileState, RootState> = {
+export const microposts: Module<MicropostsState, RootState> = {
     namespaced,
     state,
     getters,

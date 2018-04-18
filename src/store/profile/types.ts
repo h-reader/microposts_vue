@@ -8,20 +8,17 @@ export interface User {
 export interface ProfileState {
     user?: User;
     error: boolean;
-    accessToken?: string;
-    client?: string;
-    uid?: string;
 }
 
-export enum ActionType {
+export enum ProfileActionType {
     login = 'login',
 }
 
-export enum MutationType {
+export enum ProfileMutationType {
     profileLoaded = 'profileLoaded',
     profileError = 'profileError',
 }
 
-export enum GetterType {
+export enum ProfileGetterType {
     isLogin = 'isLogin',
 }
