@@ -1,6 +1,5 @@
 import { MutationTree } from 'vuex';
 import { ProfileState, User } from './types';
-import axios from 'axios';
 
 /** Profile Mutation */
 export const mutations: MutationTree<ProfileState> = {
