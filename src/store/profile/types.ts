@@ -13,13 +13,15 @@ export interface ProfileState {
 export enum ProfileActionType {
     login = 'login',
     signup = 'signup',
+    logout = 'logout',
 }
 
 export enum ProfileMutationType {
     profileLoaded = 'profileLoaded',
     profileError = 'profileError',
+    logout = 'logout',
 }
 
 export enum ProfileGetterType {
-    isLogin = 'isLogin',
+    isLogin = 'profile/isLogin',
 }

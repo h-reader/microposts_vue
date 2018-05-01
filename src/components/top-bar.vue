@@ -4,20 +4,35 @@
       <router-link to="/">Microposts</router-link>
     </div>
     <div class="settings">
-      <button class="button" @click="moveDisplay('login')">Login</button>
-      <button class="button" @click="moveDisplay('signup')">sign up</button>
+      <div v-if="isLogin">
+        <button class="button" @click="logoutApp()">Logout</button>
+      </div>
+      <div v-else>
+        <button class="button" @click="moveDisplay('login')">Login</button>
+        <button class="button" @click="moveDisplay('signup')">sign up</button>
+      </div>      
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import { ProfileActionType, ProfileGetterType } from '../store/profile/types';
+import { Action, Getter } from 'vuex-class';
+const namespace: string = 'profile';
 
 @Component({})
 export default class TopBar extends Vue {
+  @Action(ProfileActionType.logout, {namespace}) private logout: any;
+  @Getter(ProfileGetterType.isLogin) private isLogin!: boolean;
 
   private moveDisplay(movePath: string) {
     this.$router.push({ path: movePath });
+  }
+
+  private logoutApp() {
+    this.logout();
+    this.$router.push({ path: 'login' });
   }
 }
 </script>

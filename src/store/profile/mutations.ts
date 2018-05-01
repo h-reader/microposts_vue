@@ -22,4 +22,13 @@ export const mutations: MutationTree<ProfileState> = {
         state.error = true;
         state.user = undefined;
     },
+
+    /**
+     * ログアウト時の処理
+     * @param state State
+     */
+    logout(state) {
+        state.error = false;
+        state.user = undefined;
+    },
 };

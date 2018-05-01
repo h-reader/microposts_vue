@@ -48,4 +48,12 @@ export const actions: ActionTree<ProfileState, RootState> = {
             return false;
         }
     },
+
+    /**
+     * ログアウト
+     */
+    logout({ commit }) {
+        AxiosApiUtil.removeAuthInfo();
+        commit(ProfileMutationType.logout);
+    },
 };
