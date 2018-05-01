@@ -12,7 +12,7 @@
         <input type="password" v-model="password" />
       </div>
     </div>
-    <button class="button" @click="loginClick">sign in</button>
+    <button class="button" @click="loginClick">Login</button>
     <span v-if="loginError">Invalid login. Different mail or password.</span>
   </div>
 </template>
