@@ -42,7 +42,7 @@ html, body {
   color: #2c3e50;
 }
 
-div.header {
+.header {
   grid-row: 1;
   grid-column: 1;
   background-color: white;
@@ -51,7 +51,7 @@ div.header {
   margin: auto;
 }
 
-div.main {
+.main {
   grid-row: 2;
   grid-column: 1;
   background-color: powderblue;
@@ -89,7 +89,27 @@ div.main {
     color: #1679a1;
     text-shadow: 0 1px 1px rgba(255, 255, 255, .5);
   }
+}
 
+.component-title {
+  font-size: 20px;
+  color: black;
+  font-weight: normal;
+}
+
+.input-ctrl {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+
+  .label {
+    display: inline-block;
+    width: 9.8em;
+  }  
+}
+
+.input-ctrl + .input-ctrl {
+    margin-top: 0.4em;
 }
 
 </style>

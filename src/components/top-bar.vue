@@ -4,7 +4,8 @@
       <router-link to="/">Microposts</router-link>
     </div>
     <div class="settings">
-      <button class="button" @click="clickFunc">sign up</button>
+      <button class="button" @click="moveDisplay('login')">Login</button>
+      <button class="button" @click="moveDisplay('signup')">sign up</button>
     </div>
   </div>
 </template>
@@ -15,9 +16,8 @@ import { Component, Vue } from 'vue-property-decorator';
 @Component({})
 export default class TopBar extends Vue {
 
-  private async clickFunc() {
-    this.$router.push({ path: 'login' });
-
+  private moveDisplay(movePath: string) {
+    this.$router.push({ path: movePath });
   }
 }
 </script>

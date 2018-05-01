@@ -1,13 +1,18 @@
 <template>
-  <div class="login">
-    <label class="login-label">mail</label>
-    <input type="text" v-model="email" />
-    <br>
-    <label class="login-label">pasword</label>
-    <input type="password"  v-model="password" />
-    <br>
+  <div class="login-container">
+    <h1 class="component-title">Login</h1>
+
+    <div class="login-ctrl-container">
+      <div class="input-ctrl">
+        <label class="label">mail</label>
+        <input type="text" v-model="email" />
+      </div>
+      <div class="input-ctrl">
+        <label class="label">password</label>
+        <input type="password" v-model="password" />
+      </div>
+    </div>
     <button class="button" @click="loginClick">sign in</button>
-    <br>
     <span v-if="loginError">Invalid login. Different mail or password.</span>
   </div>
 </template>
@@ -47,7 +52,7 @@ export default class AppLogin extends Vue {
 
 <style lang="scss" scoped>
 
-.login {
+.login-container {
   margin: auto;
   height: 100%;
   padding: 10px;
@@ -55,11 +60,6 @@ export default class AppLogin extends Vue {
   max-height: 400px;
   max-width: 865px;
   background-color: white;
-
-  .login-label {
-    display: inline-block;
-    width: 70px;
-  }
 
   .button {
     margin-top: 10px;

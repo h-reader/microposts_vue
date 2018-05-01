@@ -26,4 +26,26 @@ export const actions: ActionTree<ProfileState, RootState> = {
             return false;
         }
     },
+
+    /**
+     * サインアップ
+     * @param param0 commit
+     * @param payload email: メールアドレス, password: パスワード, password_confirmation: パスワード(確認用), name: ユーザ名
+     */
+    async signup({ commit }, payload: {
+        email: string, password: string, password_confirmation: string, name: string}): Promise<boolean> {
+
+        try {
+            const api = AxiosApiUtil.getAxios();
+            const response = await api.post('/auth', payload);
+            const headers = response.headers;
+            AxiosApiUtil.setAuthInfo(response.headers);
+            commit(ProfileMutationType.profileLoaded, { user: response.data.data });
+            return true;
+        } catch (error) {
+            AxiosApiUtil.removeAuthInfo();
+            commit(ProfileMutationType.profileError);
+            return false;
+        }
+    },
 };

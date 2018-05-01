@@ -12,6 +12,7 @@ export interface ProfileState {
 
 export enum ProfileActionType {
     login = 'login',
+    signup = 'signup',
 }
 
 export enum ProfileMutationType {
