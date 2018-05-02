@@ -13,7 +13,7 @@ export interface MicropostsState {
 
 export enum MicropostsActionType {
     tweet = 'tweet',
-    getTweetList = 'getTweetList',
+    getTweetList = 'microposts/getTweetList',
 }
 
 export enum MicropostsMutationType {

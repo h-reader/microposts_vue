@@ -4,6 +4,8 @@ import Home from './views/Home.vue';
 import About from './views/About.vue';
 import AppLogin from './views/app-login.vue';
 import AppSignup from './views/app-signup.vue';
+import Apphome from './views/app-home.vue';
+
 
 Vue.use(Router);
 
@@ -11,8 +13,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home,
+      name: 'app-home',
+      component: Apphome,
     },
     {
       path: '/login',
