@@ -1,6 +1,8 @@
 <template>
   <div class="home-container">
-    <div class="tweet-block">a</div>
+    <div class="tweet-block">
+      <microposts-tweet></microposts-tweet>
+    </div>
     <div class="list-block">
       <microposts-list></microposts-list>
     </div>
@@ -11,10 +13,12 @@
 import Component from 'vue-class-component';
 import { Vue, Prop } from 'vue-property-decorator';
 import MicropostsList from '@/components/microposts-list.vue';
+import MicropostsTweet from '@/components/microposts-tweet.vue';
 
 @Component({
   components: {
     MicropostsList,
+    MicropostsTweet,
   },
 })
 export default class AppHome extends Vue {
@@ -35,10 +39,11 @@ export default class AppHome extends Vue {
 
 .tweet-block {
   width: 13.5em;
-  background: #5566ee;
+  margin:0.5em
 }
 
 .list-block {
   width: 25.5em;
+  margin:0.5em
 }
 </style>

@@ -11,11 +11,11 @@ export const actions: ActionTree<MicropostsState, RootState> = {
      * @param param0 commit
      * @param payload userId: ユーザID, content: 投稿内容
      */
-    async tweet({ commit }, payload: {userId: string, content: string}): Promise<boolean> {
+    async tweet({ commit }, payload: {user_id: string, content: string}): Promise<boolean> {
         try {
             const api = AxiosApiUtil.getAxiosWithAuth();
             await api.post('/microposts', payload);
-            const response = await api.get('/user/' + payload.userId + '/microposts');
+            const response = await api.get('/user/' + payload.user_id + '/microposts');
             commit(MicropostsMutationType.tweetsucceed, response.data as Micropost[]);
             return true;
         } catch (error) {
