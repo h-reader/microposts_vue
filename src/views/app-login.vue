@@ -41,7 +41,7 @@ export default class AppLogin extends Vue {
     this.loginError = false;
     const ret = await this.login({email: this.email, password: this.password});
     if (ret) {
-      this.$router.push({ path: '/' });
+      this.$router.push({ path: '/home' });
     } else {
       this.loginError = !ret;
     }
