@@ -59,7 +59,7 @@ export default class MicropostsTweet extends Vue {
 }
 
 .tweet-text {
-  margin: 0.5em;
+  margin: 0.5em 0.5em 0.5em 0;
   width: 95%;
 }
 
