@@ -25,6 +25,24 @@ export const actions: ActionTree<MicropostsState, RootState> = {
     },
 
     /**
+     * Micropostを削除する
+     * @param param0 commit
+     * @param payload id: MicropostのID, user_id: ユーザID
+     */
+    async deleteTweet({ commit }, payload: {id: string, user_id: string}) {
+        try {
+            const api = AxiosApiUtil.getAxiosWithAuth();
+            await api.delete('/microposts/' + payload.id);
+            const response = await api.get('/user/' + payload.user_id + '/microposts');
+            commit(MicropostsMutationType.tweetsucceed, response.data as Micropost[]);
+            return true;
+        } catch (error) {
+            commit(MicropostsMutationType.tweetError);
+            return false;
+        }
+    },
+
+    /**
      * ユーザに紐づくMicropostを取得する
      * @param param0 commit
      * @param payload userId: ユーザID

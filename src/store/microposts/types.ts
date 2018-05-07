@@ -14,6 +14,7 @@ export interface MicropostsState {
 export enum MicropostsActionType {
     tweet = 'microposts/tweet',
     getTweetList = 'microposts/getTweetList',
+    deleteTweet = 'microposts/deleteTweet',
 }
 
 export enum MicropostsMutationType {

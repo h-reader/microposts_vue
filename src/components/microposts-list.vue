@@ -7,6 +7,9 @@
         </div>
         <div class="micropost-content">
           {{micropost.content}}
+          <div class="btn-area">
+            <button class="button" @click="deleteClick(micropost.id)">delete</button>
+          </div>
         </div>
       </li>
     </ul>
@@ -24,14 +27,19 @@ import { User } from '@/store/profile/types';
 @Component({
 })
 export default class MicropostsList extends Vue {
-  @State(state => state.profile.user) private user!: User;
-  @State(state => state.microposts.microposts) private microposts!: Micropost[];
+  @State((state) => state.profile.user) private user!: User;
+  @State((state) => state.microposts.microposts) private microposts!: Micropost[];
   @Action(MicropostsActionType.getTweetList) private getTweetList: any;
+  @Action(MicropostsActionType.deleteTweet) private deleteTweet: any;
 
   private created() {
-    if(this.user) {
+    if (this.user) {
       this.getTweetList({userId: this.user.id});
     }
+  }
+
+  private deleteClick(id: number) {
+    this.deleteTweet({id: id.toString(), user_id: this.user.id});
   }
 }
 </script>
