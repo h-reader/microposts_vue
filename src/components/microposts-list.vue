@@ -6,7 +6,7 @@
           <span class="u-font-bold">{{ user.name }}</span> {{ micropost.created_at }}
         </div>
         <div class="micropost-content">
-          {{micropost.content}}
+          <div>{{micropost.content}}</div>
           <div class="btn-area">
             <button class="button" @click="deleteClick(micropost.id)">delete</button>
           </div>
@@ -65,5 +65,11 @@ export default class MicropostsList extends Vue {
       
     }
 
+    .micropost-content {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-bottom: 0.2em;
+    }
   }
 </style>
