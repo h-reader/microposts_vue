@@ -31,7 +31,15 @@ const namespaceMicroposts: string = 'microposts';
 export default class AppLogin extends Vue {
 
   @Action(ProfileActionType.login, {namespace}) private login: any;
+  @Action(ProfileActionType.checkLogin, {namespace}) private checkLogin: any;
   @Getter(ProfileGetterType.isLogin) private isLogin!: boolean;
+
+  private async created() {
+    const ret = await this.checkLogin();
+    if (ret) {
+      this.$router.push({ path: 'home' });
+    }
+  }
 
   private email: string = '';
   private password: string = '';
