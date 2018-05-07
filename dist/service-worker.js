@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.2.0/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.7ec88454f052f34528e1aad479215bc0.js"
+  "/precache-manifest.f44f4a675336f04c5172db80031fbaee.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "microposts-vue"});
