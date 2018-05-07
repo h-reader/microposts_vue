@@ -12,8 +12,11 @@
 <script lang="ts">
 import Component from 'vue-class-component';
 import { Vue, Prop } from 'vue-property-decorator';
+import { Action, State } from 'vuex-class';
 import MicropostsList from '@/components/microposts-list.vue';
 import MicropostsTweet from '@/components/microposts-tweet.vue';
+import { ProfileActionType } from '@/store/profile/types';
+const namespace: string = 'profile';
 
 @Component({
   components: {
@@ -23,6 +26,18 @@ import MicropostsTweet from '@/components/microposts-tweet.vue';
 })
 export default class AppHome extends Vue {
 
+  @Action(ProfileActionType.checkLogin, {namespace}) private checkLogin: any;
+
+  private created() {
+    this.isLogin();
+  }
+
+  private async isLogin() {
+    const ret = await this.checkLogin();
+    if (!ret) {
+      this.$router.push({ path: 'login' });
+    }
+  }
 }
 </script>
 

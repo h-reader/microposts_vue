@@ -18,9 +18,9 @@ export default class AxiosApiUtil {
         return axios.create({
             baseURL: this.API_URL,
             headers: {
-                ACCESS_TOKEN_KEY: localStorage.getItem(this.ACCESS_TOKEN_KEY),
-                CLINET_KEY: localStorage.getItem(this.CLINET_KEY),
-                UID_KEY: localStorage.getItem(this.UID_KEY),
+                'access-token': localStorage.getItem(this.ACCESS_TOKEN_KEY),
+                'client': localStorage.getItem(this.CLINET_KEY),
+                'uid': localStorage.getItem(this.UID_KEY),
             },
         });
     }

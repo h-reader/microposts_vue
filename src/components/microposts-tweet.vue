@@ -1,6 +1,6 @@
 <template>
   <div class="microposts-tweet-container">
-    <div class="user-name">{{ user.name }}</div>
+    <div class="user-name" v-if="user">{{ user.name }}</div>
     <div class="tweet-area">
       <textarea class="tweet-text" v-model="tweetText" cols="30" rows="10"></textarea>
     </div>

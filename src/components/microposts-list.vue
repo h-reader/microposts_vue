@@ -1,6 +1,6 @@
 <template>
   <div class="microposts-list-container">
-    <ul class="microposts-list-group">
+    <ul class="microposts-list-group" v-if="user">
       <li class="microposts-list-item" v-for="(micropost) in microposts" :key="micropost.id">
         <div class="micropost-header">
           <span class="u-font-bold">{{ user.name }}</span> {{ micropost.created_at }}

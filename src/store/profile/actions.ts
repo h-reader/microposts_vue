@@ -50,6 +50,25 @@ export const actions: ActionTree<ProfileState, RootState> = {
     },
 
     /**
+     * ログイン状態確認
+     * @param param0 commit
+     */
+    async checkLogin({ commit }): Promise<boolean> {
+        try {
+            const api = AxiosApiUtil.getAxiosWithAuth();
+            const response = await api.get('/auth/validate_token');
+            const headers = response.headers;
+            AxiosApiUtil.setAuthInfo(response.headers);
+            commit(ProfileMutationType.profileLoaded, { user: response.data.data });
+            return true;
+        } catch (error) {
+            AxiosApiUtil.removeAuthInfo();
+            commit(ProfileMutationType.profileError);
+            return false;
+        }
+    },
+
+    /**
      * ログアウト
      */
     logout({ commit }) {

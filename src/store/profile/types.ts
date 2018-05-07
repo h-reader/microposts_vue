@@ -14,6 +14,7 @@ export enum ProfileActionType {
     login = 'login',
     signup = 'signup',
     logout = 'logout',
+    checkLogin = 'checkLogin',
 }
 
 export enum ProfileMutationType {
