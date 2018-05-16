@@ -13,9 +13,11 @@
 import Component from 'vue-class-component';
 import { Vue, Prop } from 'vue-property-decorator';
 import { Action, State } from 'vuex-class';
+import { ProfileActionType, User } from '@/store/profile/types';
+import { MicropostsActionType } from '@/store/microposts/types';
+
 import MicropostsList from '@/components/microposts-list.vue';
 import MicropostsTweet from '@/components/microposts-tweet.vue';
-import { ProfileActionType } from '@/store/profile/types';
 const namespace: string = 'profile';
 
 @Component({
@@ -26,7 +28,9 @@ const namespace: string = 'profile';
 })
 export default class AppHome extends Vue {
 
+  @State((state) => state.profile.user) private user!: User;
   @Action(ProfileActionType.checkLogin, {namespace}) private checkLogin: any;
+  @Action(MicropostsActionType.getTweetList) private getTweetList: any;
 
   private created() {
     this.isLogin();
@@ -34,7 +38,9 @@ export default class AppHome extends Vue {
 
   private async isLogin() {
     const ret = await this.checkLogin();
-    if (!ret) {
+    if (ret) {
+      this.getTweetList({userId: this.user.id});
+    } else if (!ret) {
       this.$router.push({ path: 'login' });
     }
   }

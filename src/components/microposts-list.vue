@@ -29,14 +29,7 @@ import { User } from '@/store/profile/types';
 export default class MicropostsList extends Vue {
   @State((state) => state.profile.user) private user!: User;
   @State((state) => state.microposts.microposts) private microposts!: Micropost[];
-  @Action(MicropostsActionType.getTweetList) private getTweetList: any;
   @Action(MicropostsActionType.deleteTweet) private deleteTweet: any;
-
-  private created() {
-    if (this.user) {
-      this.getTweetList({userId: this.user.id});
-    }
-  }
 
   private deleteClick(id: number) {
     this.deleteTweet({id: id.toString(), user_id: this.user.id});

@@ -62,7 +62,7 @@ export default class AppSignup extends Vue {
                                     password_confirmation: this.passwordConfirm,
                                     name: this.name});
     if (ret) {
-      this.$router.push({ path: '/' });
+      this.$router.push({ path: '/home' });
     } else {
       console.log('Error!');
     }
