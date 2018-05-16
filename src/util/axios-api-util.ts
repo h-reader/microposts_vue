@@ -54,4 +54,10 @@ export default class AxiosApiUtil {
     /** APIのuid */
     private static readonly UID_KEY = 'uid';
 
+    private static printAuthInfo() {
+        console.log('access-token: ' + localStorage.getItem(this.ACCESS_TOKEN_KEY));
+        console.log('client: ' + localStorage.getItem(this.CLINET_KEY));
+        console.log('uid: ' + localStorage.getItem(this.UID_KEY));
+    }
+
 }
